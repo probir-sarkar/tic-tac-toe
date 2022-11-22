@@ -1,0 +1,14 @@
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2rem;
+
+  .result-box {
+    font-family: "Courier New", Courier, monospace;
+    h3 {
+      margin: 0;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
