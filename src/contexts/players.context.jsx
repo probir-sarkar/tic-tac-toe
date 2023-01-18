@@ -70,10 +70,12 @@ const PlayersProvider = ({ children }) => {
       .join("");
     const options = {
       method: "GET",
-      url: `https://stujo-tic-tac-toe-stujo-v1.p.rapidapi.com/${state}/X`,
+      url: `http://localhost:3000/`,
+      params: {
+        board: state,
+      },
       headers: {
-        "X-RapidAPI-Key": "1c73f75159msh75b04b1ebaf41d8p1f3827jsn1ea19521b4f7",
-        "X-RapidAPI-Host": "stujo-tic-tac-toe-stujo-v1.p.rapidapi.com",
+        "Access-Control-Allow-Origin": "*",
       },
     };
     const response = await axios.request(options);
