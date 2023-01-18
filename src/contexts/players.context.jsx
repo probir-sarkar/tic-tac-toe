@@ -53,7 +53,6 @@ const PlayersProvider = ({ children }) => {
 
   const commmonOperations = async (tableData, rowIndex, player) => {
     totalMoves.current++;
-    console.log("totalMoves.current", totalMoves.current);
     const newTableData = [...tableData];
     newTableData[rowIndex] = player;
     setTableData(newTableData);
@@ -83,7 +82,6 @@ const PlayersProvider = ({ children }) => {
   };
 
   const checkWinner = (tableData) => {
-    console.log("tableData", tableData);
     if (totalMoves.current >= 9) {
       setProcessing(false);
       setGameOver(true);
