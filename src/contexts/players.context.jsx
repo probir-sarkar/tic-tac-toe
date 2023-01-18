@@ -69,7 +69,7 @@ const PlayersProvider = ({ children }) => {
       .join("");
     const options = {
       method: "GET",
-      url: `https://coordinated-peridot-clef.glitch.me/`,
+      url: `https://tic-tac-toe-api.probir.dev/`,
       params: {
         board: state,
       },
