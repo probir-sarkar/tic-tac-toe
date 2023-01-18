@@ -70,7 +70,7 @@ const PlayersProvider = ({ children }) => {
       .join("");
     const options = {
       method: "GET",
-      url: `http://localhost:3000/`,
+      url: `https://coordinated-peridot-clef.glitch.me/`,
       params: {
         board: state,
       },
