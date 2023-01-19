@@ -1,4 +1,4 @@
-import { useState, createContext, useRef } from "react";
+import { useState, createContext, useRef, useEffect } from "react";
 import axios from "axios";
 
 const dataTable = {
@@ -80,6 +80,13 @@ const PlayersProvider = ({ children }) => {
     const response = await axios.request(options);
     return response.data.recommendation;
   };
+
+  // to avoid cold start of api request
+  useEffect(() => {
+    getAPI(dataTable.tableData).then((res) => {
+      console.log("API is ready");
+    });
+  }, []);
 
   const checkWinner = (tableData) => {
     if (totalMoves.current >= 9) {
