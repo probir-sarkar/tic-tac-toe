@@ -69,7 +69,7 @@ const PlayersProvider = ({ children }) => {
       .join("");
     const options = {
       method: "GET",
-      url: `https://tic-tac-toe-api.probir.dev/`,
+      url: `https://red-tense-whale.cyclic.app/`,
       params: {
         board: state,
       },
