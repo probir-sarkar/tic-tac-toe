@@ -1,5 +1,5 @@
 import { useState, createContext, useRef, useEffect } from "react";
-import axios from "axios";
+import { aiMove } from "../utils/aiMove";
 
 const dataTable = {
   tableData: ["", "", "", "", "", "", "", "", ""],
@@ -30,9 +30,8 @@ const PlayersProvider = ({ children }) => {
   const [winner, setWinner] = useState(null);
   const [processing, setProcessing] = useState(false);
   const [results, setResults] = useState(dataTable.results);
-  const [winnedCombination, setWinnedCombination] = useState(
-    dataTable.winnedCombination
-  );
+  const [winnedCombination, setWinnedCombination] = useState(dataTable.winnedCombination);
+  const [level, setLevel] = useState(3);
   // useref
   const totalMoves = useRef(0);
 
@@ -67,18 +66,9 @@ const PlayersProvider = ({ children }) => {
         return row;
       })
       .join("");
-    const options = {
-      method: "GET",
-      url: `https://red-tense-whale.cyclic.app/`,
-      params: {
-        board: state,
-      },
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    };
-    const response = await axios.request(options);
-    return response.data.recommendation;
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    const res = aiMove(state, level);
+    return res;
   };
 
   // to avoid cold start of api request
@@ -100,11 +90,7 @@ const PlayersProvider = ({ children }) => {
     const { winninngCombinations } = dataTable;
     for (let i = 0; i < winninngCombinations.length; i++) {
       const [a, b, c] = winninngCombinations[i];
-      if (
-        tableData[a] &&
-        tableData[a] === tableData[b] &&
-        tableData[a] === tableData[c]
-      ) {
+      if (tableData[a] && tableData[a] === tableData[b] && tableData[a] === tableData[c]) {
         setWinnedCombination([a, b, c]);
         setProcessing(false);
         setGameOver(true);
@@ -142,6 +128,8 @@ const PlayersProvider = ({ children }) => {
         results,
         winnedCombination,
         totalMoves,
+        level,
+        setLevel,
       }}
     >
       {children}
