@@ -1,4 +1,4 @@
-import { useState, createContext, useRef, useEffect } from "react";
+import { useState, createContext, useRef } from "react";
 import { aiMove } from "../utils/aiMove";
 
 const dataTable = {
@@ -70,13 +70,6 @@ const PlayersProvider = ({ children }) => {
     const res = aiMove(state, level);
     return res;
   };
-
-  // to avoid cold start of api request
-  useEffect(() => {
-    getAPI(dataTable.tableData).then((res) => {
-      console.log("API is ready");
-    });
-  }, []);
 
   const checkWinner = (tableData) => {
     if (totalMoves.current >= 9) {
