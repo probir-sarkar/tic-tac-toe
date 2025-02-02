@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@tailwindcss/vite':
-        specifier: ^4.0.3
-        version: 4.0.3(vite@6.0.11(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4))
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -23,13 +20,13 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
-      tailwindcss:
-        specifier: ^4.0.3
-        version: 4.0.3
     devDependencies:
       '@eslint/js':
         specifier: ^9.17.0
         version: 9.19.0
+      '@tailwindcss/vite':
+        specifier: ^4.0.3
+        version: 4.0.3(vite@6.0.11(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.83.4))
       '@types/react':
         specifier: ^18.3.18
         version: 18.3.18
@@ -54,6 +51,9 @@ importers:
       sass-embedded:
         specifier: ^1.83.4
         version: 1.83.4
+      tailwindcss:
+        specifier: ^4.0.3
+        version: 4.0.3
       typescript:
         specifier: ~5.6.2
         version: 5.6.3
