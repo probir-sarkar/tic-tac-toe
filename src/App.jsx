@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import Game from "./components/Game/Game.component";
 import Level from "./components/Level/Level.component";
